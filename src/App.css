@@ -1,0 +1,7 @@
+/* Import layout from styles folder */
+@import "../src/styles/layout.css";
+
+.header {
+    border: 1px solid red;
+    padding: 15px;
+  }
