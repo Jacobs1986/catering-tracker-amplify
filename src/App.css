@@ -4,3 +4,11 @@
 body {
   margin: 0;
 }
+
+/* Margins for the content divs */
+@media only screen and (min-width: 768px) {
+  div.content {
+    margin-left: 200px;
+    padding: 10px;
+  }
+}
