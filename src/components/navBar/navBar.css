@@ -1,0 +1,46 @@
+.sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    font-family: "Lato", sans-serif;
+}
+
+/* Links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Links hover */
+.sidebar a:hover {
+    background-color: #555;
+    color: white;
+}
+
+/* Tablet layout */
+@media only screen and (min-width: 600px) {
+    .sidebar a {
+        float: left;
+    }
+}
+
+/* Desktop layout */
+@media only screen and (min-width: 769px) {
+    .sidebar {
+        width: 200px;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .sidebar a {
+        float: none;
+        text-align: left;
+    }
+}

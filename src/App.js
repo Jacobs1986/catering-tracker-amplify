@@ -1,11 +1,16 @@
 import React from "react";
 
- // Styling
+// Styling
 import './App.css'
+
+// Components
+import NavBar from "./components/navBar/navBar";
 
 function App() {
     return (
-        <div>The App is ready to go!</div>
+        <>
+            <NavBar />
+        </>
     );
 }
 

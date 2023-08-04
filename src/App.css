@@ -1,0 +1,6 @@
+/* Import layout from styles folder */
+@import "../src/styles/layout.css";
+
+body {
+  margin: 0;
+}
