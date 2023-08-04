@@ -9,6 +9,7 @@ import {
 import './App.css'
 
 // Pages
+import Customers from "./pages/page-customers";
 import Home from "./pages/page-home";
 import Menu from "./pages/page-menu";
 import Orders from "./pages/page-order";
@@ -24,6 +25,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/menu' element={<Menu />} />
+                    <Route path='/customers' element={<Customers />} />
                     <Route path='/orders' element={<Orders />} />
                 </Routes>
             </BrowserRouter>
