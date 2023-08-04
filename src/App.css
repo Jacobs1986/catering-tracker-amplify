@@ -5,10 +5,26 @@ body {
   margin: 0;
 }
 
-/* Margins for the content divs */
+/* Content div */
+div.content {
+  padding: 0px 10px;
+}
+
+/* h1 alignment */
+h1 {
+  text-align: center;
+}
+
+/* Breaks for different screens */
 @media only screen and (min-width: 768px) {
+  /* content div */
   div.content {
     margin-left: 200px;
-    padding: 10px;
+    padding: 1px 15px;
+  }
+
+  /* h1 alignment */
+  h1 {
+    text-align: left;
   }
 }

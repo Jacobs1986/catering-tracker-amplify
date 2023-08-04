@@ -1,0 +1,50 @@
+/* card design */
+.customerCard {
+    border: solid 1px lightgray;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Card Header */
+.customerCard .cardHeader {
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    background-color: lightblue;
+    padding: 12px;
+}
+
+/* Card Body */
+.customerCard .cardBody {
+    font-size: 18px;
+    padding: 15px;
+}
+
+.customerCard .cardBody>div {
+    margin: 6px 0px;
+}
+
+.customerCard .cardBody>div>span {
+    font-weight: bold;
+}
+
+/* Card footer */
+.customerCard .cardFooter {
+    padding: 12px;
+    background-color: lightgray;
+}
+
+.customerCard .cardFooter button {
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.customerCard .cardFooter button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}

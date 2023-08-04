@@ -12,8 +12,8 @@
 /* Columns */
 [class*="col-"] {
     float: left;
-    padding: 15px;
-    border: 1px solid red;
+    padding: 1px;
+    /* border: 1px solid red; */
 }
 
 /* For mobile devices */
@@ -23,6 +23,10 @@
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 600px) {
+    [class*="col-"] {
+        padding: 5px;
+    }
+
     .col-s-1 {
         width: 8.33%;
     }
