@@ -5,6 +5,7 @@ import React, {
 
 // Components
 import CustomerList from "../components/customerPage/customerList/customerList";
+import NewCustomer from "../components/customerPage/newCustomerForm/newCustomerForm";
 
 // Customer list
 const customerList = [
@@ -75,6 +76,7 @@ export default function Customers() {
             <h1>Customers</h1>
             <ListOfCustomers.Provider value={{ customer, setCustomer }}>
                 <CustomerList />
+                <NewCustomer />
             </ListOfCustomers.Provider>
         </div>
     );

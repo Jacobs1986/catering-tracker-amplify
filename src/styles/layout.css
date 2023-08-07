@@ -9,6 +9,10 @@
     display: table;
 }
 
+.row {
+    margin: 10px 0px;
+}
+
 /* Columns */
 [class*="col-"] {
     float: left;

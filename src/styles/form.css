@@ -1,0 +1,10 @@
+/* Style for text input */
+input[type=text] {
+    width: 100%;
+    padding: 5px;
+}
+
+/* Style for labels */
+label {
+    font-weight: bold;
+}
