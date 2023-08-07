@@ -5,6 +5,7 @@ import React, {
 
 // Components
 import CustomerList from "../components/customerPage/customerList/customerList";
+import NewCustomer from "../components/customerPage/newCustomerForm/newCustomerForm";
 
 // Customer list
 const customerList = [
@@ -31,6 +32,36 @@ const customerList = [
         totalOrders: "24",
         lastOrder: "10/31/2022",
         orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
     }
 
 ]
@@ -45,6 +76,7 @@ export default function Customers() {
             <h1>Customers</h1>
             <ListOfCustomers.Provider value={{ customer, setCustomer }}>
                 <CustomerList />
+                <NewCustomer />
             </ListOfCustomers.Provider>
         </div>
     );

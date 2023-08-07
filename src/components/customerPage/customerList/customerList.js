@@ -11,9 +11,9 @@ import { ListOfCustomers } from "../../../pages/page-customers";
 export default function CustomerList() {
     const { customer } = useContext(ListOfCustomers)
     return (
-        <div className="row">
+        <div className="row customerContent">
             {customer.length === 0 ? <div><h1>No customers</h1></div> : customer.map((customer, i) => (
-                <div key={i} className="col-s-6 col-3">
+                <div key={i} className="col-xs-12 col-s-4 col-lg-3">
                     <div className="customerCard">
                         <div className="cardHeader">
                             {customer.name}
