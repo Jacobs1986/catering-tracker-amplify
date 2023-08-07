@@ -2,6 +2,37 @@
     margin: 5px 0px;
 }
 
+.newCustomerForm {
+    overflow: hidden;
+    height: 13.3em;
+    animation-name: showForm;
+    animation-duration: 0.9s;
+    -webkit-animation-name: showForm;
+    -webkit-animation-duration: 0.9s;
+}
+
+@keyframes showForm {
+    from {
+        height: 0em
+    }
+
+    to {
+        height: 13.3em
+    }
+}
+
+#addContactButton {
+    border: none;
+    font-size: 19px;
+    cursor: pointer;
+    padding: 9px;
+    border-radius: 5px;
+}
+
+#addContactButton:hover {
+    background-color: darkgrey;
+}
+
 @media only screen and (min-width: 768px) {
     #newCustomerAptUnit {
         margin-right: 15px;
@@ -11,7 +42,8 @@
         padding: 0px 20px;
     }
 
-    .newCustomerForm .col-m-1, .newCustomerForm .col-lg-1 {
+    .newCustomerForm .col-m-1,
+    .newCustomerForm .col-lg-1 {
         text-align: right;
     }
 }
