@@ -1,3 +1,10 @@
+/* Customer content */
+.customerContent {
+    /* border: solid 1px red; */
+    height: 31em;
+    overflow: scroll;
+}
+
 /* card design */
 .customerCard {
     border: solid 1px lightgray;

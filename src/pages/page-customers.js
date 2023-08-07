@@ -31,6 +31,36 @@ const customerList = [
         totalOrders: "24",
         lastOrder: "10/31/2022",
         orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
+    },
+    {
+        name: "Daryl's Friendly Garden",
+        totalOrders: "24",
+        lastOrder: "10/31/2022",
+        orderTotal: "157.20"
     }
 
 ]
