@@ -10,4 +10,8 @@
     .newCustomerForm {
         padding: 0px 20px;
     }
+
+    .newCustomerForm .col-m-1, .newCustomerForm .col-lg-1 {
+        text-align: right;
+    }
 }
