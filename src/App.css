@@ -16,7 +16,7 @@ h1 {
 }
 
 /* Breaks for different screens */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   /* content div */
   div.content {
     margin-left: 200px;
