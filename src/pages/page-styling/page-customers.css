@@ -1,0 +1,11 @@
+/* Customer content */
+.customerContent {
+    /* border: solid 1px red; */
+    height: 31em;
+    overflow: scroll;
+}
+
+/* New Customer Div */
+.newCustomerDiv, .toggleDiv {
+    margin: 10px 0px;
+}
