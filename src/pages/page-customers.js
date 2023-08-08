@@ -7,7 +7,7 @@ import React, {
 import "./page-styling/page-customers.css"
 
 // Components
-import CustomerList from "../components/customerPage/customerList/customerList";
+import CustomerCards from "../components/customerPage/customerCards/customerCards";
 import NewCustomer from "../components/customerPage/newCustomerForm/newCustomerForm";
 
 // Customer list
@@ -79,7 +79,7 @@ export default function Customers() {
             <h1>Customers</h1>
             <ListOfCustomers.Provider value={{ customer, setCustomer }}>
                 <div className="customerContent">
-                    <CustomerList />
+                    <CustomerCards />
                 </div>
                 <div className="newCustomerDiv">
                     <NewCustomer />
