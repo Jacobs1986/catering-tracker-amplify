@@ -1,5 +1,5 @@
-import React, { 
-    createRef,
+import React, {
+    useContext,
     useState,
     useReducer
 } from "react";
@@ -10,14 +10,16 @@ import "./newCustomerForm.css";
 // Import reducer
 import { reducer as addContactReducer } from "../../../functions/reducer"
 
+// Import context
+import { ListOfCustomers } from "../../../pages/page-customers";
+
 export default function NewCustomer() {
+    const { customer, setCustomer } = useContext(ListOfCustomers)
     const [customerInfo, setNewCustomerInfo] = useReducer(addContactReducer, {});
     const [showForm, setShowForm] = useState(false)
-    const testRef = createRef();
 
     // Function to input information into customerInfo
     const handleInputCustomerInfo = event => {
-        event.preventDefault();
         setNewCustomerInfo({
             name: event.target.name,
             value: event.target.value
@@ -25,20 +27,29 @@ export default function NewCustomer() {
     }
 
     // Handle showing the add form
-    const handleShowAddForm = event => {
-        event.preventDefault();
-        setShowForm(!showForm);
+    const handleShowAddForm = () => {
+        switch (showForm) {
+            case (showForm === false):
+                setShowForm(true);
+                break
+            default:
+                setShowForm(false);
+                setNewCustomerInfo({ reset: true });
+                setShowForm(!showForm);
+        }
     }
 
     // Function to save the customer information
     const handleSaveCustomer = (event) => {
         event.preventDefault();
-        testRef.classList.toggle('showCustomerForm');
+        let currentState = [...customer, customerInfo]
+        setCustomer(currentState);
+        handleCancelSave();
     }
 
     // Function to cancel saving the information
     const handleCancelSave = event => {
-        event.preventDefault();
+        event.preventDefault()
         setNewCustomerInfo({ reset: true });
         setShowForm(!showForm);
     }
@@ -48,7 +59,7 @@ export default function NewCustomer() {
             <button id="addContactButton" onClick={handleShowAddForm}>Add New Customer</button>
             {/* New customer form */}
             <div>
-                <form className="newCustomerForm" style={!showForm ? { display: "none"} : { display: "block" }}>
+                <form className="newCustomerForm" style={showForm === false ? { display: "none" } : { display: "block" }}>
                     {/* Customer name */}
                     <div className="row">
                         <div className="col-xs-12 col-s-1 col-lg-1">
