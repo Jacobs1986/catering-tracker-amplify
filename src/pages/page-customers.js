@@ -8,6 +8,7 @@ import "./page-styling/page-customers.css"
 
 // Components
 import CustomerCards from "../components/customerPage/customerCards/customerCards";
+import CustomerTable from "../components/customerPage/customerTable/customerTable";
 import NewCustomer from "../components/customerPage/newCustomerForm/newCustomerForm";
 
 // Customer list
@@ -74,12 +75,13 @@ export const ListOfCustomers = createContext()
 
 export default function Customers() {
     const [customer, setCustomer] = useState(customerList)
+    const [toggleView, setToggleView] = useState(true)
     return (
         <div className="content">
             <h1>Customers</h1>
             <ListOfCustomers.Provider value={{ customer, setCustomer }}>
                 <div className="customerContent">
-                    <CustomerCards />
+                    {!toggleView ? <CustomerCards /> : <CustomerTable />}    
                 </div>
                 <div className="newCustomerDiv">
                     <NewCustomer />

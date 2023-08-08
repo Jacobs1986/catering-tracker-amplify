@@ -1,0 +1,30 @@
+/* Styling for the whole table */
+.customerTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Aligh th left */
+.customerTable th {
+    text-align: left;
+}
+
+/* Add padding to th and td */
+.customerTable th, td {
+    padding: 10px;
+}
+
+/* Give th a background color */
+.customerTable th {
+    background-color: lightblue;
+}
+
+/* Give every even tr a background color */
+.customerTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Give a color when hovering over the rows */
+.customerTable tr:hover {
+    background-color: coral;
+}
