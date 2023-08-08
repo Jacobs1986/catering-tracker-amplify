@@ -76,7 +76,7 @@ export const SetView = createContext();
 export const ListOfCustomers = createContext()
 
 export default function Customers() {
-    const [toggleView, setToggleView] = useState(false)
+    const [toggleView, setToggleView] = useState("cards")
     const [customer, setCustomer] = useState(customerList)
     return (
         <div className="content">
@@ -88,7 +88,7 @@ export default function Customers() {
             </SetView.Provider>
             <ListOfCustomers.Provider value={{ customer, setCustomer }}>
                 <div className="customerContent">
-                    {!toggleView ? <CustomerCards /> : <CustomerTable />}    
+                    {toggleView === "cards" ? <CustomerCards /> : <CustomerTable />}    
                 </div>
                 <div className="newCustomerDiv">
                     <NewCustomer />
