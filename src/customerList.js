@@ -1,26 +1,29 @@
 export const customerList = [
     {
         name: "The Big Happy",
-        totalOrders: "16",
-        lastOrder: "08/03/2023",
-        orderTotal: "137.68"
+        street: "845 Happy Way",
+        unit: "28B",
+        city: "Burbank",
+        state: "CA",
+        zip: "90210",
+        Orders: [
+            {
+                orderDate: "07/02/2023",
+                orderTotal: "67.43"
+            },
+            {
+                orderDate: "08/02/2023",
+                orderTotal: "40.43"
+            }
+        ]
     },
     {
-        name: "Mission Wolf",
-        totalOrders: "6",
-        lastOrder: "04/13/2023",
-        orderTotal: "93.47"
-    },
-    {
-        name: "Laura's Daycare",
-        totalOrders: "30",
-        lastOrder: "12/03/2022",
-        orderTotal: "190.08"
-    },
-    {
-        name: "Daryl's Friendly Garden",
-        totalOrders: "24",
-        lastOrder: "10/31/2022",
-        orderTotal: "157.20"
+        name: "Natalie's Art Studio",
+        street: "764 Montgumry Dr",
+        unit: "",
+        city: "Los Angeles",
+        state: "CA",
+        zip: "90042",
+        Orders: []
     }
 ]
