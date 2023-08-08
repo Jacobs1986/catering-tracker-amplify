@@ -3,6 +3,9 @@ import React, {
     useState
 } from "react";
 
+// Styling
+import "./page-styling/page-customers.css"
+
 // Components
 import CustomerList from "../components/customerPage/customerList/customerList";
 import NewCustomer from "../components/customerPage/newCustomerForm/newCustomerForm";
@@ -75,8 +78,12 @@ export default function Customers() {
         <div className="content">
             <h1>Customers</h1>
             <ListOfCustomers.Provider value={{ customer, setCustomer }}>
-                <CustomerList />
-                <NewCustomer />
+                <div className="customerContent">
+                    <CustomerList />
+                </div>
+                <div className="newCustomerDiv">
+                    <NewCustomer />
+                </div>
             </ListOfCustomers.Provider>
         </div>
     );
