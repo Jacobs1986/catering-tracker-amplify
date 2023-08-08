@@ -7,6 +7,7 @@ import React, {
 import "./page-styling/page-customers.css"
 
 // Components
+import ToggleView from "../components/customerPage/toggleCustomerView/toggleCustomerView";
 import CustomerCards from "../components/customerPage/customerCards/customerCards";
 import CustomerTable from "../components/customerPage/customerTable/customerTable";
 import NewCustomer from "../components/customerPage/newCustomerForm/newCustomerForm";
@@ -71,14 +72,20 @@ const customerList = [
 ]
 
 // Context
+export const SetView = createContext();
 export const ListOfCustomers = createContext()
 
 export default function Customers() {
+    const [toggleView, setToggleView] = useState(false)
     const [customer, setCustomer] = useState(customerList)
-    const [toggleView, setToggleView] = useState(true)
     return (
         <div className="content">
             <h1>Customers</h1>
+            <SetView.Provider value={{ setToggleView }}>
+                <div className="toggleDiv">
+                    <ToggleView />
+                </div>
+            </SetView.Provider>
             <ListOfCustomers.Provider value={{ customer, setCustomer }}>
                 <div className="customerContent">
                     {!toggleView ? <CustomerCards /> : <CustomerTable />}    

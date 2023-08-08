@@ -6,6 +6,6 @@
 }
 
 /* New Customer Div */
-.newCustomerDiv {
+.newCustomerDiv, .toggleDiv {
     margin: 10px 0px;
 }
