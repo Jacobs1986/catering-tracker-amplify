@@ -12,12 +12,12 @@ export default function CustomerTable() {
     const { customer } = useContext(ListOfCustomers)
     return (
         <div>
-            {customer.length === 0 ? <div><h1>No Customers</h1></div> : 
+            {customer.length === 0 ? <div><h1>No Customers</h1></div> :
                 <table className="customerTable">
                     <thead>
                         <tr>
                             <th>Customer Name</th>
-                            <th>Total Orders</th>
+                            <th>Address</th>
                             <th>Last Order</th>
                             <th>Order Total</th>
                         </tr>
@@ -26,11 +26,20 @@ export default function CustomerTable() {
                         {customer.map((customer, i) => (
                             <tr key={i}>
                                 <td>{customer.name}</td>
-                                <td>{customer.totalOrders}</td>
-                                <td>{customer.lastOrder}</td>
-                                <td>{customer.orderTotal}</td>
+                                <td>{customer.street} {customer.unit}, {customer.city} {customer.state} {customer.zip}</td>
+                                {customer.Orders.length !== 0 ?
+                                    <>
+                                        <td>{customer.Orders[customer.Orders.length - 1].orderDate}</td>
+                                        <td>{customer.Orders[customer.Orders.length - 1].orderTotal}</td>
+                                    </> : 
+                                    <>
+                                        <td>NA</td>
+                                        <td>NA</td>
+                                    </>
+                                
+                                }
                             </tr>
-                    ))}
+                        ))}
                     </tbody>
                 </table>
             }

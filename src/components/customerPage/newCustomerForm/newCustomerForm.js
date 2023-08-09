@@ -42,9 +42,15 @@ export default function NewCustomer() {
     // Function to save the customer information
     const handleSaveCustomer = (event) => {
         event.preventDefault();
-        let currentState = [...customer, customerInfo]
+        let addOrders = ({
+            ...customerInfo,
+            Orders: []
+        })
+        console.log(addOrders)
+        let currentState = [...customer, addOrders]
         setCustomer(currentState);
-        handleCancelSave();
+        setNewCustomerInfo({ reset: true });
+        setShowForm(!showForm);
     }
 
     // Function to cancel saving the information
