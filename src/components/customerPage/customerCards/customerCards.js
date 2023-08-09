@@ -1,5 +1,5 @@
 import React, {
-    useContext
+    useContext,
 } from "react";
 
 // CSS File
@@ -10,6 +10,7 @@ import { ListOfCustomers } from "../../../pages/page-customers";
 
 export default function CustomerCards() {
     const { customer } = useContext(ListOfCustomers)
+
     return (
         <div className="row customerContent">
             {customer.length === 0 ? <div><h1>No customers</h1></div> : customer.map((customer, i) => (
@@ -19,9 +20,21 @@ export default function CustomerCards() {
                             {customer.name}
                         </div>
                         <div className="cardBody">
-                            <div><span>Total Orders:</span> {customer.totalOrders}</div>
-                            <div><span>Last Order:</span> {customer.lastOrder}</div>
-                            <div><span>Order Total:</span> ${customer.orderTotal}</div>
+                            <div><span>Address:</span> {customer.street}</div>
+                            <div><span>Number of Orders:</span> {customer.Orders.length}</div>
+                            {customer.Orders.length === 0 ?
+                                <>
+                                    <div><span>Last Order:</span> NA</div>
+                                    <div><span>Last Order:</span> NA</div>
+                                </> :
+                                <>
+                                    <div><span>Last Order:</span> {customer.Orders[customer.Orders.length - 1].orderDate}</div>
+                                    <div><span>Order Total:</span> {customer.Orders[customer.Orders.length - 1].orderTotal}</div>
+                                </>
+
+                            }
+                            {/* <div><span>Last Order:</span> {customer.Orders[customer.Orders.length - 1].orderDate}</div>
+                            <div><span>Order Total:</span> {customer.Orders[customer.Orders.length - 1].orderTotal}</div> */}
                         </div>
                         <div className="cardFooter">
                             <button>View Details</button>
