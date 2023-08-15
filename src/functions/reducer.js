@@ -6,7 +6,7 @@ export const reducer =  (state, action) => {
         case 'added': {
             return {
                 ...state,
-                [action.name]: [action.value]
+                [action.name]: action.value
             };
         }
         // reset the state
