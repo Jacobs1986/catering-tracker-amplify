@@ -44,6 +44,12 @@ export default function NewItemForm() {
                         <div></div>
                     }
                 </div>
+                {/* Buttons */}
+                <div className="row">
+                    <button>Save & Add Another</button>
+                    <button>Save & Close</button>
+                    <button>Close</button>
+                </div>
             </form>
         </div>
     );
