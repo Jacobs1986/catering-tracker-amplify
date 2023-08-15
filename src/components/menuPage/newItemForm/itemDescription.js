@@ -5,6 +5,11 @@ import "./newItemForm.css";
 
 export default function ItemDescription() {
     return (
-        <div>This is the item description component.</div>
+        <div className="row">
+            <div className="col-xs-12 col-s-12 col-m-7">
+                <label htmlFor="itemDescription">Description:</label>
+                <textarea id="itemDescription" name="itemDescription" />
+            </div>
+        </div>
     );
 };
