@@ -1,4 +1,5 @@
 import React, {
+    createContext,
     useReducer,
     useState
 } from "react";
@@ -12,6 +13,8 @@ import { reducer as newMenuItemReducer } from "../../../functions/reducer";
 // Import components
 import MainItemForm from "./mainItemForm";
 import AddonItemForm from "./addonItemForm";
+
+export const NewItemContext = createContext();
 
 export default function NewItemForm() {
     const [radioCheck, setRadioCheck] = useState("");
@@ -63,14 +66,17 @@ export default function NewItemForm() {
                     </div>
                 </div>
                 {/* The forms */}
-                <div>
-                    {radioCheck === "main" ?
-                        <MainItemForm /> :
-                        radioCheck === "addOn" ?
-                            <AddonItemForm /> :
-                            <div></div>
-                    }
-                </div>
+                <NewItemContext.Provider value={{ newItemInfo, setNewItemInfo }}>
+                    <div>
+                        {radioCheck === "main" ?
+                            <MainItemForm /> :
+                            radioCheck === "addOn" ?
+                                <AddonItemForm /> :
+                                <div></div>
+                        }
+                    </div>
+                </NewItemContext.Provider>
+                {/* Error message that will display if one of the radios in not selected */}
                 <div className="errorMessage" style={{ display: showMessage }}>
                     You must select an item type in order to continue.
                 </div>
