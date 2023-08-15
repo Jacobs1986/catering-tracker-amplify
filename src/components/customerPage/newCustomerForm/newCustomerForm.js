@@ -21,6 +21,7 @@ export default function NewCustomer() {
     // Function to input information into customerInfo
     const handleInputCustomerInfo = event => {
         setNewCustomerInfo({
+            type: 'added',
             name: event.target.name,
             value: event.target.value
         })
@@ -34,7 +35,7 @@ export default function NewCustomer() {
                 break
             default:
                 setShowForm(false);
-                setNewCustomerInfo({ reset: true });
+                setNewCustomerInfo({ type: 'reset' });
                 setShowForm(!showForm);
         }
     }
@@ -49,14 +50,14 @@ export default function NewCustomer() {
         console.log(addOrders)
         let currentState = [...customer, addOrders]
         setCustomer(currentState);
-        setNewCustomerInfo({ reset: true });
+        setNewCustomerInfo({ type: 'reset' });
         setShowForm(!showForm);
     }
 
     // Function to cancel saving the information
     const handleCancelSave = event => {
         event.preventDefault()
-        setNewCustomerInfo({ reset: true });
+        setNewCustomerInfo({ type: 'reset' });
         setShowForm(!showForm);
     }
 
