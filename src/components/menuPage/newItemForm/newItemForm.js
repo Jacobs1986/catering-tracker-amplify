@@ -33,18 +33,27 @@ export default function NewItemForm() {
         })
     }
 
+    // function to save information
+    const handleInputChange = event => {
+        setNewItemInfo({
+            type: 'added',
+            name: event.target.name,
+            value: event.target.value
+        })
+    }
+
     const handleSaveInfo = event => {
         event.preventDefault();
         // Check to see if there is a raido value
         switch (radioCheck) {
             case "": {
                 setShowMessage('block')
-                break
+                return
             }
             default:
-                console.log(newItemInfo);
                 setShowMessage('none');
         }
+        console.log(newItemInfo);
     }
 
     return (
@@ -66,7 +75,7 @@ export default function NewItemForm() {
                     </div>
                 </div>
                 {/* The forms */}
-                <NewItemContext.Provider value={{ newItemInfo, setNewItemInfo }}>
+                <NewItemContext.Provider value={{ newItemInfo, handleInputChange }}>
                     <div>
                         {radioCheck === "main" ?
                             <MainItemForm /> :
