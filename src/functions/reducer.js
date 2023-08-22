@@ -9,6 +9,11 @@ export const reducer =  (state, action) => {
                 [action.name]: action.value
             };
         }
+        // delete a property
+        case 'delete': {
+            delete state[action.name];
+            return state
+        }
         // reset the state
         case 'reset': {
             state = {};

@@ -75,7 +75,7 @@ export default function NewItemForm() {
                     </div>
                 </div>
                 {/* The forms */}
-                <NewItemContext.Provider value={{ newItemInfo, handleInputChange }}>
+                <NewItemContext.Provider value={{ newItemInfo, handleInputChange, setNewItemInfo }}>
                     <div>
                         {radioCheck === "main" ?
                             <MainItemForm /> :
