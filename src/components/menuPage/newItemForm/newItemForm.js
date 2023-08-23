@@ -17,7 +17,7 @@ import AddonItemForm from "./addonItemForm";
 export const NewItemContext = createContext();
 
 export default function NewItemForm() {
-    const [radioCheck, setRadioCheck] = useState("");
+    const [radioCheck, setRadioCheck] = useState("main");
     // reducer
     const [newItemInfo, setNewItemInfo] = useReducer(newMenuItemReducer, {});
     // state for showing error message
