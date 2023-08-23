@@ -1,14 +1,25 @@
 import React, {
+    useContext,
+    useEffect,
+    useReducer,
     useState
 } from "react";
 
 // CSS File
 import "./newItemForm.css";
 
+// Import reducer
+import { reducer as sizeReducer } from "../../../functions/reducer";
+
+// Import context
+import { NewItemContext } from "./newItemForm";
+
 export default function SizeAndCost() {
+    const { setNewItemInfo } = useContext(NewItemContext);
     const [disabled, setDisabled] = useState(true);
     const [sizeRadio, setSizeRadio] = useState("");
     const [numOfSizes, setNumOfSizes] = useState(0);
+    const [sizeInfo, setSizeInfo] = useReducer(sizeReducer, {});
 
     // function to handle the changing of the radio buttons
     const handleToggleSizeRadio = event => {
@@ -33,15 +44,35 @@ export default function SizeAndCost() {
         setNumOfSizes(event.target.value)
     }
 
+    // Handle size inputs
+    const handleSizeInput = event => {
+        setSizeInfo({
+            type: 'added',
+            name: event.target.name,
+            value: event.target.value
+        })
+    }
+
+    // Update the newItemInfo
+    useEffect(() => {
+        let sizeArray = [];
+        sizeArray.push(sizeInfo);
+        setNewItemInfo({
+            type: 'addArray',
+            name: 'sizeAndCost',
+            value: sizeArray
+        })
+    }, [sizeInfo, setNewItemInfo])
+
     // Test for generating the same component
     let componentArr = [];
     for (let i = 1; i <= numOfSizes; i++) {
         componentArr.push(
             <div className="col-xs-4 col-s-3 col-m-2 col-lg-2" key={i}>
                 <label htmlFor="sizeType">Size Type:</label>
-                <input type="text" id="sizeType" name="sizeType" />
+                <input type="text" id="sizeType" name={"sizeType"+i} value={sizeInfo["sizeType"+i] || ""} onChange={handleSizeInput} />
                 <label htmlFor="sizeCost">Cost: </label>
-                <input type="text" id="sizeCost" name="sizeCost" />
+                <input type="text" id="sizeCost" name={"sizeCost"+i} value={sizeInfo["sizeCost"+i] || ""} onChange={handleSizeInput} />
             </div>
         )
     }
