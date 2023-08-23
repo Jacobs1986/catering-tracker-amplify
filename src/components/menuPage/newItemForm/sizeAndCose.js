@@ -8,7 +8,7 @@ import "./newItemForm.css";
 export default function SizeAndCost() {
     const [disabled, setDisabled] = useState(true);
     const [sizeRadio, setSizeRadio] = useState("");
-    const [numOfSizes, setNumOfSizes] = useState(6);
+    const [numOfSizes, setNumOfSizes] = useState(0);
 
     // function to handle the changing of the radio buttons
     const handleToggleSizeRadio = event => {
@@ -31,6 +31,19 @@ export default function SizeAndCost() {
     // Function that will change the number of sizes
     const handleChangeNumofSizes = event => {
         setNumOfSizes(event.target.value)
+    }
+
+    // Test for generating the same component
+    let componentArr = [];
+    for (let i = 1; i <= numOfSizes; i++) {
+        componentArr.push(
+            <div className="col-xs-4 col-s-3 col-m-2 col-lg-2" key={i}>
+                <label htmlFor="sizeType">Size Type:</label>
+                <input type="text" id="sizeType" name="sizeType" />
+                <label htmlFor="sizeCost">Cost: </label>
+                <input type="text" id="sizeCost" name="sizeCost" />
+            </div>
+        )
     }
 
     return (
@@ -58,22 +71,16 @@ export default function SizeAndCost() {
             <div>
                 {sizeRadio === "yesSize" ?
                     <div className="row">
-                        {Array.from(Array(numOfSizes)).map((x, index) => (<div key={index}>This is a test</div>))}
-                        {/* <div className="col-xs-4 col-s-3 col-m-2 col-lg-2">
-                            <label htmlFor="sizeType">Size Type:</label>
-                            <input type="text" id="sizeType" name="sizeType" />
-                            <label htmlFor="sizeCost">Cost: </label>
-                            <input type="text" id="sizeCost" name="sizeCost" />
-                        </div> */}
+                        {componentArr}
                     </div> : sizeRadio === "noSize" ?
-                    // If the no radio is selected
-                    <div className="row">
-                        <div className="col-xs-6 col-s-3 col-m-2 col-lg-2">
-                            <label htmlFor="itemCost">Cost: </label>
-                            <input type="text" id="itemCost" name="itemCost" />
-                        </div>
-                    </div> :
-                    <div></div>
+                        // If the no radio is selected
+                        <div className="row">
+                            <div className="col-xs-6 col-s-3 col-m-2 col-lg-2">
+                                <label htmlFor="itemCost">Cost: </label>
+                                <input type="text" id="itemCost" name="itemCost" />
+                            </div>
+                        </div> :
+                        <div></div>
                 }
             </div>
         </div >
