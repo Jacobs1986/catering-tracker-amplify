@@ -10,7 +10,7 @@ import "./newItemForm.css";
 import { NewItemContext } from "./newItemForm";
 
 export default function SizeAndCost() {
-    const { sizeInfo, setSizeInfo, setNewItemInfo } = useContext(NewItemContext);
+    const { sizeInfo, setSizeInfo, setNewItemInfo, handleInputChange, newItemInfo } = useContext(NewItemContext);
     const [disabled, setDisabled] = useState(true);
     const [sizeRadio, setSizeRadio] = useState("");
     const [numOfSizes, setNumOfSizes] = useState(0);
@@ -121,7 +121,7 @@ export default function SizeAndCost() {
                         <div className="row">
                             <div className="col-xs-6 col-s-3 col-m-2 col-lg-2">
                                 <label htmlFor="itemCost">Cost: </label>
-                                <input type="text" id="itemCost" name="itemCost" />
+                                <input type="text" id="itemCost" name="cost" value={newItemInfo.cost || ""} onChange={handleInputChange} />
                             </div>
                         </div> :
                         <div></div>
