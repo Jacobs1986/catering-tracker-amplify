@@ -3,7 +3,7 @@ export const reducer =  (state, action) => {
     // Begin switch statement
     switch (action.type) {
         // Add the new value to the state
-        case 'added': {
+        case 'add': {
             return {
                 ...state,
                 [action.name]: action.value
