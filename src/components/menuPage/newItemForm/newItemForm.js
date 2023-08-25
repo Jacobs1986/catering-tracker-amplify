@@ -23,7 +23,7 @@ export const NewItemContext = createContext();
 
 export default function NewItemForm() {
     // radio state
-    const [radioCheck, setRadioCheck] = useState("main");
+    const [radioCheck, setRadioCheck] = useState("");
     //  newItemInfo hook
     const [newItemInfo, setNewItemInfo] = useReducer(newMenuItemReducer, {});
     // sizeInfo hook
@@ -35,7 +35,17 @@ export default function NewItemForm() {
 
     // Function that will show the different forms
     const handleShowForm = (event) => {
-        setRadioCheck(event.target.value)
+        // Set event.target.value to the value radioName
+        let radioName = event.target.value;
+        // Begin conditional statement
+        if (radioName === "addOn") {
+            // Clear newItemInfo and sizeInfo
+            setNewItemInfo({ type: 'reset' });
+            setSizeInfo({ type: 'reset' });
+        }   
+        // Set radioCheck to radioName
+        setRadioCheck(radioName);
+        // Set newItemInfo type
         setNewItemInfo({
             type: 'add',
             name: 'type',
@@ -63,14 +73,18 @@ export default function NewItemForm() {
             default:
                 setShowMessage('none');
         }
-        // Create the array of objects for sizes
-        let sizeArray = createObjArray(sizeInfo, "sizeType", "sizeCost", "name", "cost");
-        // Pass the array into newItemInfo
-        setNewItemInfo({
-            type: 'add',
-            name: 'sizeAndCost',
-            value: sizeArray            
-        })
+        // first check to see if sizes is true
+        // Begin condictional
+        if (newItemInfo.sizes) {
+            // Create the array of objects for sizes
+            let sizeArray = createObjArray(sizeInfo, "sizeType", "sizeCost", "name", "cost");
+            // Pass the array into newItemInfo
+            setNewItemInfo({
+                type: 'add',
+                name: 'sizeList',
+                value: sizeArray            
+            })
+        }
         // display info
         setShowInfo(true);
     }
