@@ -16,12 +16,12 @@ export default function AddonItemForm() {
             {/* Add on Name */}
             <div className="col-xs-12">
                 <label htmlFor="addOnName">Name:</label>
-                <input type="text" id="addOnName" name="itemName" value={newItemInfo.itemName || ""} onChange={handleInputChange} />
+                <input type="text" id="addOnName" name="name" value={newItemInfo.name || ""} onChange={handleInputChange} />
             </div>
             {/* Cost */}
             <div className="col-xs-6 col-m-2">
                 <label htmlFor="addOnCost">Cost:</label>
-                <input type="text" id="addOnCost" name="addOnCost" />
+                <input type="text" id="addOnCost" name="cost" value={newItemInfo.cost || ""} onChange={handleInputChange} />
             </div>
         </div>
     );
