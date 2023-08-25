@@ -9,13 +9,6 @@ export const reducer =  (state, action) => {
                 [action.name]: action.value
             };
         }
-        // add an array
-        case 'addArray': {
-            return {
-                ...state,
-                [action.name]: action.value
-            }
-        }
         // delete a property
         case 'delete': {
             delete state[action.name];
