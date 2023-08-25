@@ -37,8 +37,8 @@ export default function NewItemForm() {
     const handleShowForm = (event) => {
         setRadioCheck(event.target.value)
         setNewItemInfo({
-            type: 'added',
-            name: 'itemType',
+            type: 'add',
+            name: 'type',
             value: event.target.value
         })
     }
@@ -46,7 +46,7 @@ export default function NewItemForm() {
     // function to save information
     const handleInputChange = event => {
         setNewItemInfo({
-            type: 'added',
+            type: 'add',
             name: event.target.name,
             value: event.target.value
         })
@@ -67,7 +67,7 @@ export default function NewItemForm() {
         let sizeArray = createObjArray(sizeInfo, "sizeType", "sizeCost", "name", "cost");
         // Pass the array into newItemInfo
         setNewItemInfo({
-            type: 'added',
+            type: 'add',
             name: 'sizeAndCost',
             value: sizeArray            
         })

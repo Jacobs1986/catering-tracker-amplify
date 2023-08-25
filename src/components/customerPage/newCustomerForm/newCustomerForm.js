@@ -21,7 +21,7 @@ export default function NewCustomer() {
     // Function to input information into customerInfo
     const handleInputCustomerInfo = event => {
         setNewCustomerInfo({
-            type: 'added',
+            type: 'add',
             name: event.target.name,
             value: event.target.value
         })

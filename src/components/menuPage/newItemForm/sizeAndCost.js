@@ -10,7 +10,7 @@ import "./newItemForm.css";
 import { NewItemContext } from "./newItemForm";
 
 export default function SizeAndCost() {
-    const { sizeInfo, setSizeInfo } = useContext(NewItemContext);
+    const { sizeInfo, setSizeInfo, setNewItemInfo } = useContext(NewItemContext);
     const [disabled, setDisabled] = useState(true);
     const [sizeRadio, setSizeRadio] = useState("");
     const [numOfSizes, setNumOfSizes] = useState(0);
@@ -23,13 +23,26 @@ export default function SizeAndCost() {
             case "yesSize": {
                 setDisabled(false);
                 setSizeRadio(event.target.value);
+                // set sizes to be true
+                setNewItemInfo({
+                    type: 'add',
+                    name: 'sizes',
+                    value: true
+                })
                 break
             }
             // Disable the input
             default:
                 setDisabled(true);
                 setSizeRadio(event.target.value);
+                // Set number to be 0
                 setNumOfSizes("0");
+                // set sizes to be false
+                setNewItemInfo({
+                    type: 'add',
+                    name: 'sizes',
+                    value: false
+                })
         }
     }
 

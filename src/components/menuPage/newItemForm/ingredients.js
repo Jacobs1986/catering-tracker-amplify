@@ -20,17 +20,37 @@ export default function Ingredients() {
         switch (event.target.value) {
             // Activate the input box
             case "yesIngredients": {
+                // Set the radio control
                 setRadioControl(event.target.value);
+                // enable the input
                 setDisabled(false);
+                // set ingredients to true
+                setNewItemInfo({
+                    type: 'add',
+                    name: 'ingredients',
+                    value: true
+                })
                 break
             }
             // Disable the input box
             default:
+                // set the radio control
                 setRadioControl(event.target.value);
+                // disable the input
                 setDisabled(true);
+                // Check to see if there is an ingredientsList
+                if (newItemInfo.ingredientsList) {
+                    // Delete the list
+                    setNewItemInfo({
+                        type: 'delete',
+                        name: 'ingredientsInput'
+                    })
+                }
+                // set ingredients to false
                 setNewItemInfo({
-                    type: 'delete',
-                    name: 'ingredientsInput'
+                    type: 'add',
+                    name: 'ingredients',
+                    value: false
                 })
         }
     }
@@ -55,7 +75,7 @@ export default function Ingredients() {
             <div className="row">
                 <div className="col-xs-12 col-s-12 col-m-9 col-lg-6">
                     <label htmlFor="ingredientsInput">Ingredients:</label>
-                    <input type="text" id="ingredientsInput" name="ingredientsInput" disabled={disabled} value={newItemInfo.ingredientsInput || "" } onChange={handleInputChange} />
+                    <input type="text" id="ingredientsInput" name="ingredientsList" disabled={disabled} value={newItemInfo.ingredientsList || "" } onChange={handleInputChange} />
                     <div>Separate ingredients with a ','</div>
                 </div>
             </div>
