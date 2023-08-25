@@ -6,7 +6,7 @@ import "./newItemForm.css";
 // Components
 import NameAndCategories from "./nameAndCategories";
 import Ingredients from "./ingredients";
-import SizeAndCost from "./sizeAndCose";
+import SizeAndCost from "./sizeAndCost";
 import ItemDescription from "./itemDescription";
 
 export default function MainItemForm() {
