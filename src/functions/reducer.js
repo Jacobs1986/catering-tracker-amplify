@@ -49,6 +49,13 @@ export const sizeReducer = (state, action) => {
             // return the state
             return state;
          }
+        //  If the type is reset
+        case 'reset': {
+            // Set state to a blank object
+            state = {};
+            // return state
+            return state;
+        }
          // If the type is unknown
          default:
             throw Error('Unkown action: ' + action.type);
