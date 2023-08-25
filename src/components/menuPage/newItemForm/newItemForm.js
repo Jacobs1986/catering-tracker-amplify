@@ -1,5 +1,6 @@
 import React, {
     createContext,
+    useEffect,
     useReducer,
     useState
 } from "react";
@@ -9,6 +10,10 @@ import "./newItemForm.css";
 
 // Import the reducer
 import { reducer as newMenuItemReducer } from "../../../functions/reducer";
+import { sizeReducer } from "../../../functions/reducer";
+
+// Import object array creator
+import { createObjArray } from "../../../functions/createObjArray";
 
 // Import components
 import MainItemForm from "./mainItemForm";
@@ -17,11 +22,16 @@ import AddonItemForm from "./addonItemForm";
 export const NewItemContext = createContext();
 
 export default function NewItemForm() {
+    // radio state
     const [radioCheck, setRadioCheck] = useState("main");
-    // reducer
+    //  newItemInfo hook
     const [newItemInfo, setNewItemInfo] = useReducer(newMenuItemReducer, {});
+    // sizeInfo hook
+    const [sizeInfo, setSizeInfo] = useReducer(sizeReducer, {});
     // state for showing error message
     const [showMessage, setShowMessage] = useState('none')
+    // showInfo hook
+    const [showInfo, setShowInfo] = useState(false);
 
     // Function that will show the different forms
     const handleShowForm = (event) => {
@@ -53,8 +63,25 @@ export default function NewItemForm() {
             default:
                 setShowMessage('none');
         }
-        console.log(newItemInfo);
+        // Create the array of objects for sizes
+        let sizeArray = createObjArray(sizeInfo, "sizeType", "sizeCost", "name", "cost");
+        // Pass the array into newItemInfo
+        setNewItemInfo({
+            type: 'added',
+            name: 'sizeAndCost',
+            value: sizeArray            
+        })
+        // display info
+        setShowInfo(true);
     }
+
+    // Display the info
+    useEffect(() => {
+        if (showInfo) {
+            console.log(newItemInfo);
+            setShowInfo(false);
+        }
+    }, [showInfo, newItemInfo]);
 
     return (
         <div>
@@ -75,7 +102,7 @@ export default function NewItemForm() {
                     </div>
                 </div>
                 {/* The forms */}
-                <NewItemContext.Provider value={{ newItemInfo, handleInputChange, setNewItemInfo }}>
+                <NewItemContext.Provider value={{ newItemInfo, handleInputChange, setNewItemInfo, sizeInfo, setSizeInfo }}>
                     <div>
                         {radioCheck === "main" ?
                             <MainItemForm /> :
