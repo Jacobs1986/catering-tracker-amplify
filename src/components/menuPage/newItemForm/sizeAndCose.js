@@ -1,25 +1,19 @@
 import React, {
     useContext,
-    useEffect,
-    useReducer,
     useState
 } from "react";
 
 // CSS File
 import "./newItemForm.css";
 
-// Import reducer
-import { reducer as sizeReducer } from "../../../functions/reducer";
-
 // Import context
 import { NewItemContext } from "./newItemForm";
 
 export default function SizeAndCost() {
-    const { setNewItemInfo } = useContext(NewItemContext);
+    const { sizeInfo, setSizeInfo } = useContext(NewItemContext);
     const [disabled, setDisabled] = useState(true);
     const [sizeRadio, setSizeRadio] = useState("");
     const [numOfSizes, setNumOfSizes] = useState(0);
-    const [sizeInfo, setSizeInfo] = useReducer(sizeReducer, {});
 
     // function to handle the changing of the radio buttons
     const handleToggleSizeRadio = event => {
@@ -41,28 +35,34 @@ export default function SizeAndCost() {
 
     // Function that will change the number of sizes
     const handleChangeNumofSizes = event => {
-        setNumOfSizes(event.target.value)
+        // Set the newNum value to event.target.value
+        let newNum = event.target.value
+        // begin the switch statement
+        switch (true) {
+            // Case where newNum is less than numOfSizes
+            case newNum <= numOfSizes: {
+                // If true, delete from object
+                setSizeInfo({
+                    type: 'delete',
+                    num: numOfSizes
+                })
+                break
+            }
+            // default is blank
+            default:
+        }
+        // set the new number of sizes
+        setNumOfSizes(newNum);
     }
 
     // Handle size inputs
     const handleSizeInput = event => {
         setSizeInfo({
-            type: 'added',
+            type: 'add',
             name: event.target.name,
             value: event.target.value
         })
     }
-
-    // Update the newItemInfo
-    useEffect(() => {
-        let sizeArray = [];
-        sizeArray.push(sizeInfo);
-        setNewItemInfo({
-            type: 'addArray',
-            name: 'sizeAndCost',
-            value: sizeArray
-        })
-    }, [sizeInfo, setNewItemInfo])
 
     // Test for generating the same component
     let componentArr = [];
