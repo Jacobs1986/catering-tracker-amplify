@@ -37,12 +37,9 @@ export default function NewItemForm() {
     const handleShowForm = (event) => {
         // Set event.target.value to the value radioName
         let radioName = event.target.value;
-        // Begin conditional statement
-        if (radioName === "addOn") {
-            // Clear newItemInfo and sizeInfo
-            setNewItemInfo({ type: 'reset' });
-            setSizeInfo({ type: 'reset' });
-        }   
+        // Clear newItemInfo and sizeInfo
+        setNewItemInfo({ type: 'reset' });
+        setSizeInfo({ type: 'reset' });   
         // Set radioCheck to radioName
         setRadioCheck(radioName);
         // Set newItemInfo type
